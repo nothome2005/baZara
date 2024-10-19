@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjedoahy0eglb"]
+
+[ext_resource type="Script" path="res://Game/Scripts/object_spawner.gd" id="1_76vrr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xexs"]
+size = Vector3(0.2, 1, 2.235)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_76vrr")
+Num = null
+Chance = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 2.57185, 0)
+mesh = SubResource("BoxMesh_8xexs")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.110181, 0, 0)
+text = "1500"
+font_size = 172
+
+[node name="Node3D1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 2.05, 0.4)
+
+[node name="1" type="Marker3D" parent="Node3D1"]
+
+[node name="4" type="Marker3D" parent="Node3D1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65, 0)
+
+[node name="7" type="Marker3D" parent="Node3D1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 2.05, 0)
+
+[node name="2" type="Marker3D" parent="Node3D2"]
+
+[node name="5" type="Marker3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65, 0)
+
+[node name="8" type="Marker3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 2.05, -0.4)
+
+[node name="3" type="Marker3D" parent="Node3D3"]
+
+[node name="6" type="Marker3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65, 0)
+
+[node name="9" type="Marker3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)

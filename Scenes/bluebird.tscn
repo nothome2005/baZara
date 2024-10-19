@@ -1,0 +1,245 @@
+[gd_scene load_steps=15 format=3 uid="uid://dpt7lr3uc348a"]
+
+[ext_resource type="Script" path="res://Game/Scripts/bluebird.gd" id="1_26ptb"]
+[ext_resource type="Material" uid="uid://dqecabpv7oohw" path="res://Game/Materials/bluebird_screen.tres" id="1_27kv7"]
+[ext_resource type="AudioStream" uid="uid://qjct8tu82utl" path="res://Game/Sounds/knopka-vyiklyucheniya-na-nastolnoy-lampe1.ogg" id="2_h2g1c"]
+[ext_resource type="Script" path="res://addons/MultiplayCore/synchronizers/MPAnimationSync.gd" id="3_qeqdh"]
+[ext_resource type="PackedScene" uid="uid://mdvqhipkr8gb" path="res://Game/Scenes/cell-25.tscn" id="4_jw54p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okr6t"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.49
+metallic_specular = 0.23
+roughness = 0.55
+
+[sub_resource type="BoxMesh" id="BoxMesh_v2uva"]
+material = SubResource("StandardMaterial3D_okr6t")
+size = Vector3(0.2, 0.02, 0.4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0jbi5"]
+material = ExtResource("1_27kv7")
+size = Vector2(0.18, 0.345)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c2wkn"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="Animation" id="Animation_5tngr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone/Sprite3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_komr3"]
+resource_name = "Turn_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-0.1, -0.25, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0, -0.6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.333333, 0.7)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Phone/Screen:mesh:material:emission_enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Phone/Sprite3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_05sub"]
+resource_name = "Turn_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone/Screen:mesh:material:emission_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-0.6, -0.25, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Phone/Sprite3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SubViewportContainer/SubViewport/Control")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"refresh"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hgejb"]
+_data = {
+"RESET": SubResource("Animation_5tngr"),
+"Turn_off": SubResource("Animation_komr3"),
+"Turn_on": SubResource("Animation_05sub")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_b1jh2"]
+properties/0/path = NodePath("SubViewportContainer/SubViewport/Control:Data")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+
+[node name="Bluebird" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+script = ExtResource("1_26ptb")
+
+[node name="Phone" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0743998, 0)
+mesh = SubResource("BoxMesh_v2uva")
+
+[node name="Screen" type="MeshInstance3D" parent="Phone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0107723, -0.0091192)
+mesh = SubResource("PlaneMesh_0jbi5")
+skeleton = NodePath("../..")
+
+[node name="Sprite3D" type="Sprite3D" parent="Phone"]
+transform = Transform3D(0.038, 0, 0, 0, -1.66103e-09, 0.038, 0, -0.038, -1.66103e-09, 0.000132194, 0.0108737, -0.0091003)
+visible = false
+texture = SubResource("ViewportTexture_c2wkn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hgejb")
+}
+
+[node name="MPAnimationSync" type="Node" parent="AnimationPlayer"]
+script = ExtResource("3_qeqdh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_h2g1c")
+volume_db = -10.0
+pitch_scale = 1.2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = -744.17
+offset_top = -260.0
+offset_right = -251.17
+offset_bottom = 674.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(493, 934)
+render_target_update_mode = 4
+
+[node name="Control" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_jw54p")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_b1jh2")
